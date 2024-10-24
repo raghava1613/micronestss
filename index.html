@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header with Logo (No px)</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Base font size */
+   
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    bottom: 87%;
+    background-color: #000000;
+    transition: backgroun-color 0.5s ease;
+}
+
+header.transparent {
+    background: linear-gradient(135deg, #176de4, #ffa857);
+}
+
+.logo img {
+    width: 11.999rem; /* Using rem for logo width */
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem; /* Using rem for gap */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem; /* 1rem = 16px */
+    padding-bottom: 0rem; /* Padding bottom for underbar effect */
+    transition: color 0.3s ease;  
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0.225rem; /* Underline thickness */
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a.active {
+    font-weight: bold;
+    color: #f5a623;
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+
+section {
+    padding: -1rem -2rem; /* Equal to 100px */
+    min-height: 100vh;
+    margin-left: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #176de4, #ffa857);
+    background-attachment: fixed;
+}
+
+/* Ensuring all sections use the same background gradient */
+#home, #services, #aboutus, #contact-us {
+    background: linear-gradient(135deg, #176de4, #ffa857);
+    background-attachment: fixed;
+    color: #fff; /* Optional: Ensure text stands out against the background */
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+}
+
+#home {
+    /* Flexbox layout to align image and content side by side */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+}
+
+.image {
+    text-align: left; /* Align image to the left */
+    max-width: 100%;
+    margin-right: 2rem; /* Add space between the image and the content */
+    margin-top: 5rem;
+}
+
+.image img {
+    width: 120%; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for the home section */
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+}
+
+.content {
+    flex-grow: 1;
+    max-width: 50%; /* Limit the width of the content */
+    padding-left: 2rem; /* Add padding to the left */
+    text-align: left;
+}
+
+.large-heading {
+    font-size: 58px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.rotate-text {
+    position: relative;
+    height: 47px; /* Adjust based on your text height */
+    overflow: hidden;
+    font-size: 250%;
+    text-align: left;
+    margin-right: 40%;
+    color: #000000;
+    font-weight: bold;
+    width: 130%;
+    margin-left: 30%;
+}
+
+.text {
+    position:absolute;
+    animation: rotateSlideOut 6s infinite;
+    opacity: 0;
+    transform: translateY(100%);
+
+}
+
+.text:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.text:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.text:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes rotateSlideOut {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    20%, 40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    60%, 100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+
+@media (min-width: 768px) {
+    #home {
+        flex-direction: row; /* Side by side layout for larger screens */
+    }
+
+    .image img {
+        width: 120%; /* Original image size for large screens */
+        margin-right: 2rem;
+    }
+
+    .content {
+        max-width: 50%; /* Limit content width on large screens */
+        text-align: left; /* Left-align text on larger screens */
+    }
+
+    .large-heading {
+        font-size: 58px; /* Larger font on bigger screens */
+    }
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding-top: 4.75rem;
+    background: linear-gradient(37deg, #176de4, #ffa857);
+    background-attachment: fixed;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .content {
+        width: 80%;
+    }
+}
+
+
+/* Responsive for smaller screens */
+@media (max-width: 48rem) { /* 48rem = 768px */
+    header {
+        padding: 0.225rem 1.25rem; /* Adjusting padding for smaller screens */
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 0.525rem;
+    }
+
+    nav a {
+        font-size: 0.5rem; /* Slightly larger font size for better readability */
+    }
+
+    .logo img {
+        width: 4.25rem; /* Adjust logo size on mobile screens */
+    }
+}
+
+* {
+    box-sizing: border-box; /* Ensure padding and border are included in width and height */
+    margin: 0;
+    padding: 0;
+}
+
+.responsive-section {
+    background-color: #f8f8f8; /* Light background color */
+    padding: 5vw; /* Use relative units for responsive padding */
+    text-align: center; /* Center align text */
+}
+
+.container {
+    max-width: 1200px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 2vw; /* Additional padding for smaller screens */
+}
+
+.section-title {
+    font-size: 2.5rem; /* Responsive font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 1.5rem; /* Space below the title */
+}
+
+.section-description {
+    font-size: 1.2rem; /* Responsive font size */
+    color: #666; /* Medium text color */
+    margin-bottom: 2rem; /* Space below the paragraph */
+}
+
+.cta-button {
+    display: inline-block; /* Display button inline */
+    padding: 1rem 2rem; /* Responsive padding for the button */
+    font-size: 1.2rem; /* Responsive font size */
+    color: #fff; /* White text color */
+    background-color: #007BFF; /* Primary color for button */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect for hover */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem; /* Smaller title font for mobile */
+    }
+
+    .section-description {
+        font-size: 1rem; /* Smaller description font for mobile */
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem; /* Smaller padding for button */
+        font-size: 1rem; /* Smaller font size for button */
+    }
+}
+
+/* Services Section */
+#services {
+    padding: 50px 0;
+    text-align: center;
+    
+}
+
+.services-heading h2 {
+    font-size: 45px;
+    color: #ffffff;
+    margin-top: 5%;
+}
+
+.services-heading p {
+    color: #393434;
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+    font-weight: bold;
+}
+
+/* Service Box Container */
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background: linear-gradient(to right, #ff5f6d, #ffc371); /* Gradient color */
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.service-box p{
+    color: #ffffff;
+}
+
+.service-number {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: #ff5f6d;
+    border-radius: 50%;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.service-icon {
+    margin-top: 40px;
+}
+
+.service-icon i {
+    font-size: 40px;
+}
+
+.service-content h3 {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.service-content p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .services-heading p {
+        font-size: 13px;
+        margin: 2% 10% 6% 10%;
+    }
+}
+
+/* Who We Are Styling */
+#Whoweare {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-size: 100%;
+}
+
+.heading {
+    color: #e41212;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10%;
+    padding-top: 1rem;
+    z-index: 999;
+}
+
+/* Content Section Styling */
+.content-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: -50vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Paragraph */
+.paragraph {
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #000000;
+    font-style: inherit;
+    text-align: justify;
+    padding-bottom: 2rem;
+    margin: 10% 10% 0 10%;
+}
+
+.content-section h2 {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Video */
+.content-section video {
+    padding-top: 0rem;
+    display:flex;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #Whoweare {
+        height: auto; /* Adjust height */
+        padding: 1rem 1rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+        margin-bottom: 0%;
+    }
+
+    .content-section {
+        margin-top: 0; /* Remove negative margin */
+        padding: 0.5rem 1rem;
+    }
+
+    .paragraph {
+        font-size: 0.5rem; /* Smaller font size */
+        line-height: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .video {
+        padding-top: 0rem;
+       
+    }
+
+    .video iframe {
+        width: 50%; /* Full width for small screens */
+        max-width: 50%; /* No constraint on max-width */
+        height: 200px;
+    }
+}
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bdbdbd;
+}
+
+header {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#aboutus {
+    transition: 0.3ms;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 2rem 2rem;
+}
+
+.about-us-container h1{
+text-align: center;
+font-size: 3rem;
+padding-top: 1%;
+}
+
+.about-us-container h2{
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Zigzag Layout */
+.about-us-item {
+    display: flex;
+    align-items: center;
+}
+
+.about-us-item.left {
+    flex-direction: row; /* Image on the left */
+}
+
+.about-us-item.right {
+    flex-direction: row-reverse; /* Image on the right */
+}
+
+.about-us-item img {
+    width: 20%; /* Adjust as needed */
+    max-width: 300px; /* Ensure a max size */
+    margin: 0 1rem; /* Spacing */
+}
+
+/* Text Styling */
+.about-us-text {
+    max-width: 100%; /* Adjust as needed */
+    margin: 0 1rem; /* Spacing */
+    line-height: 2rem;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Active class to trigger fade-in */
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-us-item {
+        flex-direction:row;
+        text-align: center;
+    }
+
+    .about-us-item img {
+        width: 20%; /* Reduce image size */
+        margin: 0 auto; /* Center images */
+    }
+
+    .about-us-text {
+        margin: 0.5rem 0; /* Reduce margin for text */
+        line-height: 1rem; /* Adjust line height for readability */
+        font-size: 0.7rem;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Basic styles */
+body, html {
+    margin: 0;
+    padding: -5rem;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 3em;
+    color: #fffdfd;
+}
+/* Contact Us Section */
+#contact-us {
+    padding: -5%;
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 0;
+    flex-wrap: wrap;
+    padding: 2%;
+    padding-top: 7%;
+    padding-bottom: 0%;
+}
+.contact-form label {
+    font-size: 1rem;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.contact-form input {
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 10px;
+    height: 2.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #dfdede;
+}
+.contact-form textarea{
+    width: 100%;
+    border-radius: 5px;
+    background-color: #dfdede;
+}
+
+.contact-form button {
+    padding: 10px 30px;
+    background-color: #166431;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 9rem;
+    margin-top: 1.5rem;
+    color: white;
+}
+
+.contact-form button:hover {
+    background-color: #000000;
+}
+
+/* Right side: Contact details */
+.contact-details {
+    flex-basis: 50%;
+    padding-left: 0;
+    padding-top: -1%;
+    text-align: center;
+    
+}
+
+.info-box {
+    margin-bottom: 60px;
+}
+
+.info-box h3 {
+    font-size: 1.1rem;
+    color: #d4d0d0;
+    margin-top: -0.9rem;
+    line-height: 0.9rem;
+}
+
+.info-box p {
+    font-size: 0.8rem;
+    color: #323232;
+    line-height: 1.2rem;
+}
+
+.info-box {
+    margin-top: 20px;
+}
+
+.info-box a {
+    text-decoration: none;
+    color: #323232;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.info-box a:hover {
+    color: #838eff;
+}
+
+/* Styles for the "Why Choose Us" section */
+#why-choose-us {
+    padding: 50px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#why-choose-us h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column;
+    }
+}
+
+    
+/* Bubbles Container */
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* Bubble Styling */
+.bubble {
+    position: absolute;
+    bottom: -200px;
+    background: linear-gradient(135deg, #ffa857, #01b2ed, #176de4);
+    border-radius: 50%;
+    animation: bubble 15s infinite ease-in-out;
+    animation-delay: calc(-10s * var(--i));
+}
+
+/* Individual Bubble Sizes */
+.bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; --i: 1; }
+.bubble:nth-child(2) { left: 30%; width: 50px; height: 50px; --i: 3; }
+.bubble:nth-child(3) { left: 50%; width: 30px; height: 30px; --i: 5; }
+.bubble:nth-child(4) { left: 70%; width: 60px; height: 60px; --i: 7; }
+.bubble:nth-child(5) { left: 90%; width: 45px; height: 45px; --i: 2; }
+.bubble:nth-child(6) { left: 20%; width: 35px; height: 35px; --i: 4; }
+
+/* Responsive Bubbles */
+@media (max-width: 768px) {
+    .bubble {
+        width: calc(20% - 10px); /* Smaller bubbles on small screens */
+        height: auto;
+    }
+
+    /* Adjust positions */
+    .bubble:nth-child(1) { left: 5%; width: 30px; height: 30px; }
+    .bubble:nth-child(2) { left: 25%; width: 40px; height: 40px; }
+    .bubble:nth-child(3) { left: 45%; width: 25px; height: 25px; }
+    .bubble:nth-child(4) { left: 65%; width: 50px; height: 50px; }
+    .bubble:nth-child(5) { left: 85%; width: 35px; height: 35px; }
+    .bubble:nth-child(6) { left: 15%; width: 30px; height: 30px; }
+}
+
+/* Bubble Animation */
+@keyframes bubble {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+#our-clients {
+    padding: 1px 0;
+    text-align: center;
+}
+
+.clients-container {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+.client-box {
+    width: 30%;
+    padding: 20px;
+    border-left: 2px solid #000000;
+}
+
+.client-box:first-child {
+    border-left: none;
+}
+
+.client-number {
+    font-size: 48px;
+    color: #ffd557;
+    margin-bottom: 10px;
+    font-weight: 200;
+}
+
+.client-box p{
+    color: #bababa;
+}
+
+.partner-container h4{
+    font-size: 1.5rem;
+    padding-top: 2%;
+}
+
+.partner-container img{
+    width: 5%;
+    height: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+
+#rocket {
+    position: fixed;
+    left: 10px; /* Position the rocket on the left */
+    bottom: 50%; /* Start in the middle of the screen */
+    transition: bottom 0.2s ease; /* Smooth transition */
+    z-index: 999;
+    
+}
+
+.rocket img {
+    width: 5px; /* Adjust the size of the rocket */
+    height: auto;
+    
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .rocket img {
+        width: 20px; /* Smaller rocket on small screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .rocket img {
+        width: 70px; /* Larger rocket on bigger screens */
+    }
+}
+
+footer {
+    background-color: #282c34;
+    padding: 2rem 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 0rem;
+    }
+    .footer-content p{
+        font-size: 0.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+
+    <div class="rocket" id="rocket">
+        <img src="images/rocket.png" alt="Rocket" />
+    </div>
+    
+    <div class="bubbles-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
+<header id="header">
+    <div class="logo">
+        <a href="#"><img src="images/logo2.png" alt="Company Logo"> </a> <!-- Add your logo image here -->
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#services" class="nav-item">Services</a></li>
+            <li><a href="#aboutus" class="nav-item">About Us</a></li>
+            <li><a href="#contactus" class="nav-item">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home">
+    <div class="image">
+        <img src="images/homeimg.svg">
+    </div>
+
+    <div class="content">
+        <h1 class="large-heading">We Build Your Digital Success</h1>
+        <div class="rotate-text">
+            <span class="text">User-friendly</span>
+            <span class="text">affordable price</span>
+            <span class="text">SEO-Friendly</span>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="services-heading">
+        <h2>Our Services</h2>
+        <p>Our services are crafted to bring your business into the digital age without breaking the bank. Whether you need a professional website, a custom mobile app, or eye-catching graphic design, we offer budget-friendly solutions to help you succeed.</p>
+    </div>
+
+    <div class="services-container">
+        <!-- Service 1 -->
+        <div class="service-box">
+            <div class="service-number">01</div>
+            <div class="service-icon">
+                <i class="fa fa-laptop"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Web Development</h3>
+                <p>Ecommerce website</p>
+                <p>Business website</p>
+                <p>Blog website</p>
+                <p>Portfolio website</p>
+                <p>Booking website</p>
+                <p>School & Collages</p>
+                <p>Event website</p>
+                <p>Personal website</p>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-box">
+            <div class="service-number">02</div>
+            <div class="service-icon">
+                <i class="fa fa-mobile"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Mobile App Development</h3>
+                <p>We create custom mobile apps with user-friendly interfaces for both iOS and Android platforms tailored to your business needs.</p>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-box">
+            <div class="service-number">03</div>
+            <div class="service-icon">
+                <i class="fa fa-paint-brush"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Graphic Design</h3>
+                <p>Logo Design</p>
+                <p>Digital Banners</p>
+                <p>Business Cards</p>
+                <p>Visiting Cards</p>
+                <p>Broucher Design</p>
+                <p>Poster Design</p>
+                <p>Menu Cards</p>
+                <p>Social Media Posts</p>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-box">
+            <div class="service-number">04</div>
+            <div class="service-icon">
+                <i class="fa fa-paint-brush"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Video Editing & trailer cut's</h3>
+                <p>Product Trailers</p>
+                <p>Business Trailers</p>
+                <p>Wedding Trailers</p>
+                <p>Youtube Video's</p>
+                <p>Instagram Video Post's</p>
+            </div>
+        </div>
+
+
+        <!-- Service 5 -->
+        <div class="service-box">
+            <div class="service-number">05</div>
+            <div class="service-icon">
+                <i class="fa fa-paint-brush"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Free Services & Maintenance</h3>
+                <p>We offer free Maintenance for website and mobile applications</p>
+            </div>
+        </div>
+
+
+         <!-- Service 6 -->
+         <div class="service-box">
+            <div class="service-number">06</div>
+            <div class="service-icon">
+                <i class="fa fa-mobile"></i> <!-- Placeholder for actual service icon -->
+            </div>
+            <div class="service-content">
+                <h3>Social Media Marketing</h3>
+                <p>SEO Friendly Design</p>
+                <p>Instagram Add's</p>
+                <p>Facebook Add's</p>
+                <p>Twitter Adds's</p>
+                <p>Promotions</p>
+                <p>collaborations</p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Whoweare">
+    <div class="whoweare">
+        <div class="heading">
+            <h1>Who We Are</h1>
+        </div>
+        <!-- Content Section -->
+        <div class="content-section">
+            <p class="paragraph">
+                We are a group of young, energetic, and innovative professionals driven by passion, not corporate norms.
+                We value our clients' hard-earned money and understand the importance of delivering results that matter.
+                With dedication, creativity, and integrity, we work closely with every client to turn their vision into
+                reality, ensuring they receive the best solutions for their business.
+            </p>
+            <h2>Watch the video below</h2>
+
+            <!-- Video element -->
+            <video width="640" height="420" autoplay muted controls>
+                <source src="images/video_mn.mp4" type="video/mp4">
+                <!-- Fallback text -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Zigzag Layout Section -->
+<section id ="aboutus">
+<section class="about-us">
+    <div class="about-us-container">
+        <h1 class="about-us-container">About Us</h1>
+        <div class="about-us-item left">
+            <img src="images/ourstory1.png" alt="About Us Image 1" class="fade-in">
+            <div class="about-us-text fade-in">
+                <h2>Our Story</h2>
+                <p>Founded with a passion to help small businesses thrive in the digital age, MICRONEST began with a simple mission,
+                    to provide affordable, high-quality digital services to those who need it most. Our journey started when we
+                    recognized that many small businesses struggled to build an online presence due to high costs and complex solutions.
+                    Seeing this gap, we committed ourselves to delivering professional websites, mobile apps, and creative graphic
+                    designs at prices that fit within small business budgets</p>
+            </div>
+        </div>
+
+        <div class="about-us-item right">
+            <img src="images/misso.jpg" alt="About Us Image 2" class="fade-in">
+            <div class="about-us-text fade-in">
+                <h2>Our Mission</h2>
+                <p>Our mission is to empower small businesses by providing affordable, high-quality digital solutions.
+                    We are committed to delivering professional websites, mobile apps, and creative graphic designs
+                    tailored to the unique needs of our clients. Through innovation, personalized service, and a
+                    dedication to customer success, we aim to make digital transformation accessible to businesses of all sizes.</p>
+            </div>
+        </div>
+        
+        <div class="about-us-item left">
+            <img src="images/myvision.png" alt="About Us Image 3" class="fade-in">
+            <div class="about-us-text fade-in">
+                <h2>Our Vision</h2>
+                <p>Our vision is to be the go-to digital partner for small businesses, enabling them to thrive in an increasingly digital world.
+                    We aspire to lead the industry in providing affordable, reliable, and innovative digital solutions, helping businesses
+                    build their online presence and achieve long-term growth.</p>
+            </div>
+        </div>
+
+        <div class="about-us-item right">
+            <img src="images/valuesmy.png" alt="About Us Image 2" class="fade-in">
+            <div class="about-us-text fade-in">
+                <h2>Our Values</h2>
+                <p>At our MICRONEST, we prioritize collaboration, flexibility, and autonomy, fostering an environment where diverse skills
+                    unite to drive innovation. Transparency and open communication are at the core of our values, building trust within our team
+                    and with clients. We embrace continuous improvement and creativity, encouraging experimentation while nurturing a supportive
+                    community where everyone can thrive together.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+
+<section id="our-clients">
+    <div class="clients-container">
+        <div class="client-box">
+            <h3 class="client-number" data-target="10">0</h3>
+            <p>Clients Served</p>
+        </div>
+        <div class="client-box">
+            <h3 class="client-number" data-target="08">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="client-box">
+            <h3 class="client-number" data-target="05">0</h3>
+            <p>Partners</p>
+        </div>
+    </div>
+
+    <div class="partner-container">
+        <div class="partner-box">
+            <h4>░o░u░r░ ░p░a░r░t░n░e░r░s░</h4>
+        </div>
+        <div class="brands">
+            <img src="images/amz.png" alt="b1" />
+            <img src="images/apple.png" alt="b1" />
+            <img src="images/fb.png" alt="b1" />
+        </div>
+    </div>
+</section>
+
+
+<section id="contactus">
+<section class="about-us">
+    <div class="services-heading">
+    <h1>Contact Us</h1>
+    <div class="contact-container">
+        <!-- Left side: Contact form -->
+        <div class="contact-form">
+            <form action="#" method="post">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder=" Your full name" required>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder=" Your mobile number" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder=" Your email address" required>
+
+                <label for="purpose">Purpose</label>
+                <textarea id="purpose" name="purpose" rows="4" placeholder=" Write your message here..." required></textarea>
+
+                <button type="button" onclick="sendToWhatsApp()">Whatsapp direct</button>
+            </form>
+        </div>
+
+
+        <!-- Right side: Address and contact details -->
+        <div class="contact-details">
+            <div class="info-box">
+                <h3>Address</h3>
+                <p>MicroNest office, Road no : 4, KPHB<br>Hyderabad, Telangana, 500082</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Contact Details</h3>
+                <p>Phone: +91 7569006737<br>
+                Email:<a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWtDsTnLNpDnjMTDJQPLCxdgRHKXrqXPhsnZtptVxhrJlpllZXrtKLsjKjWGrXDnqjHtkTBXL" target="_blank"> micronestss@gmail.com</a></p>
+                
+            </div>
+
+            <div class="info-box">
+                <h3>Location</h3>
+                <p><a href="https://www.google.com/maps/place/Ratnagiri+Filter+Coffee/@17.4904214,78.3939289,666m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb91160541ab37:0x66d3927be9fcd518!8m2!3d17.4904163!4d78.3965038!16s%2Fg%2F11sl_81h0v?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Find me on Google Maps</a></p>
+            </div>
+
+            <div class="info-box">
+                <h3>Follow Us</h3>
+                <a href="#">Facebook </a> | 
+                <a href="#">Twitter </a> | 
+                <a href="#">LinkedIn </a> | 
+                <a href="#">Instagram </a> |
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 MicroNest. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+
+
+    // Make header transparent on scroll up
+const header = document.getElementById('main-header');
+
+window.onscroll = function() {
+    if (window.scrollY > 100) {
+        header.classList.add('transparent');
+    } else {
+        header.classList.remove('transparent');
+    }
+};
+
+// Handle active class on nav links
+const navItems = document.querySelectorAll('.nav-item');
+
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navItems.forEach(link => link.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
+
+// Slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+// Automatic slide movement
+let slideInterval = setInterval(() => moveSlide(1), 3000); // Move to the next slide every 3 seconds
+
+function moveSlide(n) {
+    currentSlide += n;
+
+    // Reset to first slide if reaching the end
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    updateSlide();
+}
+
+function setCurrentSlide(n) {
+    clearInterval(slideInterval); // Stop automatic sliding when a dot is clicked
+    currentSlide = n;
+    updateSlide();
+}
+
+// Update slide position and active dot
+function updateSlide() {
+    const offset = -currentSlide * 100; // Move slides horizontally
+    document.querySelector('.slides').style.transform = `translateX(${offset}vw)`;
+
+    // Update active dot
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Dropdown functionality
+function toggleDropdown(index) {
+    const dropdowns = document.querySelectorAll('.service-dropdown');
+    const dropdown = dropdowns[index];
+
+    // Toggle the active class
+    dropdown.classList.toggle('active');
+    
+    // Close any other opened dropdowns
+    dropdowns.forEach((item, idx) => {
+        if (idx !== index) {
+            item.classList.remove('active');
+        }
+    });
+}
+
+// Function to detect when an element comes into view
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Handle scroll event to trigger animations
+function handleScroll() {
+    const dropdowns = document.querySelectorAll('.service-dropdown');
+    const servicesHeading = document.querySelector('.services-heading');
+    const servicesParagraph = document.querySelector('.services-paragraph');
+    const contentSection = document.querySelector('.content-section');
+
+    if (isElementInViewport(servicesHeading)) {
+        servicesHeading.classList.add('active');
+    }
+
+    if (isElementInViewport(servicesParagraph)) {
+        servicesParagraph.classList.add('active');
+    }
+
+    dropdowns.forEach(dropdown => {
+        if (isElementInViewport(dropdown)) {
+            dropdown.classList.add('active');
+        }
+    });
+
+    if (isElementInViewport(contentSection)) {
+        contentSection.classList.add('active');
+    }
+}
+
+// Listen to the scroll event
+window.addEventListener('scroll', handleScroll);
+
+// Trigger the function once on load
+document.addEventListener('DOMContentLoaded', handleScroll);
+
+// Function to detect when the element comes into view
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Add 'active' class when the element is in view
+function handleScroll() {
+    const fadeIns = document.querySelectorAll('.fade-in');
+
+    fadeIns.forEach(el => {
+        if (isElementInViewport(el)) {
+            el.classList.add('active');
+        }
+    });
+}
+
+// Listen to scroll event
+window.addEventListener('scroll', handleScroll);
+
+// Trigger animation once on load if element is already in view
+document.addEventListener('DOMContentLoaded', handleScroll);
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        // Check the scroll position
+        if (window.scrollY > 50) {
+            header.classList.add("transparent");
+        } else {
+            header.classList.remove("transparent");
+        }
+    });
+})
+
+document.addEventListener("DOMContentLoaded", function() {
+    let texts = document.querySelectorAll('.transition-text');
+    let index = 0;
+
+    function changeText() {
+        texts.forEach((text, i) => {
+            text.classList.remove('show');
+        });
+        texts[index].classList.add('show');
+        index = (index + 1) % texts.length; // Loop through the texts
+    }
+
+    // Start text rotation every 2 seconds
+    setInterval(changeText, 2000);
+});
+
+
+let lastScrollTop = 1000;
+const rocket = document.getElementById('rocket');
+
+window.addEventListener('scroll', function() {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (st > lastScrollTop) {
+        // Scrolling down
+        rocket.style.bottom = (parseInt(getComputedStyle(rocket).bottom) + 10) + 'px'; // Move rocket down
+    } else {
+        // Scrolling up
+        rocket.style.bottom = (parseInt(getComputedStyle(rocket).bottom) - 10) + 'px'; // Move rocket up
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+});
+
+
+const counters = document.querySelectorAll('.client-number');
+counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 200;
+
+        if (current < target) {
+            counter.innerText = Math.ceil(current + increment);
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    updateCounter();
+});
+
+function sendToWhatsApp() {
+    // Get form values
+    const fullname = document.getElementById('fullname').value;
+    const mobile = document.getElementById('mobile').value;
+    const email = document.getElementById('email').value;
+    const purpose = document.getElementById('purpose').value;
+
+    // Ensure all fields are filled
+    if (fullname && mobile && email && purpose) {
+        // Create a pre-written WhatsApp message
+        const message = `Full Name: ${fullname}\nMobile: ${mobile}\nEmail: ${email}\nPurpose: ${purpose}`;
+        const encodedMessage = encodeURIComponent(message); // URL encode the message
+
+        // WhatsApp API URL (replace 'YOUR_PHONE_NUMBER' with your actual WhatsApp number)
+        const whatsappURL = `https://api.whatsapp.com/send?phone=917569006737&text=${encodedMessage}`;
+
+        // Redirect to WhatsApp with the pre-filled message
+        window.open(whatsappURL, '_blank');
+    } else {
+        alert("Please fill in all the fields.");
+    }
+}
+
+</script>
+
+</body>
+</html>
