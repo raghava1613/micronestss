@@ -99,7 +99,7 @@ section {
 /* Responsive styling for mobile devices */
 @media (max-width: 768px) {
     section {
-        padding: 1rem;
+        padding: 0.2rem;
     }
 }
 
@@ -197,23 +197,35 @@ section {
 }
 
 
-@media (min-width: 768px) {
+/* For small screens (below 768px) */
+@media (max-width: 767px) {
     #home {
-        flex-direction: row; /* Side by side layout for larger screens */
-    }
-
-    .image img {
-        width: 120%; /* Original image size for large screens */
-        margin-right: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .content {
-        max-width: 50%; /* Limit content width on large screens */
-        text-align: left; /* Left-align text on larger screens */
+        max-width: 90%; /* Make content wider */
+        padding-left: 1rem; /* Reduce padding */
     }
 
     .large-heading {
-        font-size: 58px; /* Larger font on bigger screens */
+        font-size: 36px; /* Decrease the heading size */
+        text-align: center;
+    }
+
+    .rotate-text {
+        font-size: 110%; /* Decrease rotating text size */
+        margin-left: 0;
+        margin-right: 0;
+        width: 80%;
+        text-align: center; /* Center text for small screens */
+        height: 20px;
+    }
+
+    .text {
+        font-size: 120%; /* Adjust size of individual rotating text */
     }
 }
 
@@ -399,18 +411,90 @@ body {
     margin-top: 10px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive adjustments */
+
+/* Large screens (1024px and above) */
+@media (min-width: 1024px) {
     .services-container {
-        flex-direction: column;
+        flex-wrap: nowrap; /* Avoid wrapping on large screens */
+        justify-content: space-between; /* Spread service boxes evenly */
+    }
+    
+    .service-box {
+        width: 300px;
+        margin: 20px;
     }
 }
 
-@media (max-width: 480px) {
-    
+/* Tablets (between 768px and 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .services-heading h2 {
+        font-size: 38px;
+    }
+
     .services-heading p {
+        font-size: 18px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .service-box {
+        width: 250px; /* Slightly smaller boxes */
+        margin: 15px;
+    }
+
+    .service-icon i {
+        font-size: 35px;
+    }
+
+    .service-content h3 {
+        font-size: 20px;
+    }
+
+    .service-content p {
         font-size: 13px;
-        margin: 2% 10% 6% 10%;
+    }
+}
+
+
+/* Small screens (below 768px) */
+@media (max-width: 767px) {
+    .services-container {
+        flex-direction: column; /* Stack service boxes vertically */
+        align-items: center;
+    }
+
+    .services-heading h2 {
+        font-size: 30px;
+    }
+
+    .services-heading p {
+        font-size: 16px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .service-box {
+        width: 70%; /* Full width for mobile devices */
+        margin: 15px 0;
+    }
+
+    .service-number {
+        top: -20px;
+        padding: 8px 15px;
+        font-size: 20px;
+    }
+
+    .service-icon i {
+        font-size: 30px;
+    }
+
+    .service-content h3 {
+        font-size: 18px;
+    }
+
+    .service-content p {
+        font-size: 12px;
     }
 }
 
@@ -473,12 +557,13 @@ body {
 @media (max-width: 768px) {
     #Whoweare {
         height: auto; /* Adjust height */
-        padding: 1rem 1rem;
+        padding: 0rem 1rem;
     }
 
     .heading {
-        font-size: 2rem;
+        font-size: 1rem;
         margin-bottom: 0%;
+        padding-top: 0.2rem;
     }
 
     .content-section {
@@ -487,7 +572,7 @@ body {
     }
 
     .paragraph {
-        font-size: 0.5rem; /* Smaller font size */
+        font-size: 0.7rem; /* Smaller font size */
         line-height: 1rem;
         padding-bottom: 2rem;
     }
@@ -498,8 +583,8 @@ body {
     }
 
     .video iframe {
-        width: 50%; /* Full width for small screens */
-        max-width: 50%; /* No constraint on max-width */
+        width: 70%; /* Full width for small screens */
+        max-width: 100%; /* No constraint on max-width */
         height: 200px;
     }
 }
@@ -940,7 +1025,7 @@ footer {
     
 <header id="header">
     <div class="logo">
-        <a href="#"><img src="logo2.png" alt="Company Logo"> </a> <!-- Add your logo image here -->
+        <a href="#"><img src="images/logo2.png" alt="Company Logo"> </a> <!-- Add your logo image here -->
     </div>
     <nav>
         <ul class="nav-links">
@@ -954,7 +1039,7 @@ footer {
 
 <section id="home">
     <div class="image">
-        <img src="homeimg.svg">
+        <img src="images/homeimg.svg">
     </div>
 
     <div class="content">
@@ -1092,7 +1177,7 @@ footer {
 
             <!-- Video element -->
             <video width="640" height="420" autoplay muted controls>
-                <source src="video_mn.mp4" type="video/mp4">
+                <source src="images/video_mn.mp4" type="video/mp4">
                 <!-- Fallback text -->
                 Your browser does not support the video tag.
             </video>
@@ -1109,7 +1194,7 @@ footer {
     <div class="about-us-container">
         <h1 class="about-us-container">About Us</h1>
         <div class="about-us-item left">
-            <img src="ourstory1.png" alt="About Us Image 1" class="fade-in">
+            <img src="images/ourstory1.png" alt="About Us Image 1" class="fade-in">
             <div class="about-us-text fade-in">
                 <h2>Our Story</h2>
                 <p>Founded with a passion to help small businesses thrive in the digital age, MICRONEST began with a simple mission,
@@ -1121,7 +1206,7 @@ footer {
         </div>
 
         <div class="about-us-item right">
-            <img src="misso.jpg" alt="About Us Image 2" class="fade-in">
+            <img src="images/misso.jpg" alt="About Us Image 2" class="fade-in">
             <div class="about-us-text fade-in">
                 <h2>Our Mission</h2>
                 <p>Our mission is to empower small businesses by providing affordable, high-quality digital solutions.
@@ -1132,7 +1217,7 @@ footer {
         </div>
         
         <div class="about-us-item left">
-            <img src="myvision.png" alt="About Us Image 3" class="fade-in">
+            <img src="images/myvision.png" alt="About Us Image 3" class="fade-in">
             <div class="about-us-text fade-in">
                 <h2>Our Vision</h2>
                 <p>Our vision is to be the go-to digital partner for small businesses, enabling them to thrive in an increasingly digital world.
@@ -1142,7 +1227,7 @@ footer {
         </div>
 
         <div class="about-us-item right">
-            <img src="valuesmy.png" alt="About Us Image 2" class="fade-in">
+            <img src="images/valuesmy.png" alt="About Us Image 2" class="fade-in">
             <div class="about-us-text fade-in">
                 <h2>Our Values</h2>
                 <p>At our MICRONEST, we prioritize collaboration, flexibility, and autonomy, fostering an environment where diverse skills
@@ -1176,9 +1261,9 @@ footer {
             <h4>░o░u░r░ ░p░a░r░t░n░e░r░s░</h4>
         </div>
         <div class="brands">
-            <img src="amz.png" alt="b1" />
-            <img src="apple.png" alt="b1" />
-            <img src="fb.png" alt="b1" />
+            <img src="images/amz.png" alt="b1" />
+            <img src="images/apple.png" alt="b1" />
+            <img src="images/fb.png" alt="b1" />
         </div>
     </div>
 </section>
